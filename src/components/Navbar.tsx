@@ -7,7 +7,7 @@ import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 const Navbar = async () => {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
-  
+
   const isAdmin = user?.email === process.env.ADMIN_EMAIL;
 
   return (
@@ -31,10 +31,10 @@ const Navbar = async () => {
                 </Link>
                 {isAdmin ? (
                   <Link
-                    href="/api/auth/logout"
+                    href="/dashboard"
                     className={buttonVariants({
                       size: "sm",
-                      variant: "default",
+                      variant: "ghost",
                     })}
                   >
                     Dashboard ✨
@@ -44,7 +44,6 @@ const Navbar = async () => {
                   href="/configure/upload"
                   className={buttonVariants({
                     size: "sm",
-                    variant: "ghost",
                     className: "hidden sm:flex items-center gap-1",
                   })}
                 >
@@ -77,7 +76,6 @@ const Navbar = async () => {
                   href="/configure/upload"
                   className={buttonVariants({
                     size: "sm",
-                    variant: "default",
                     className: "hidden sm:flex items-center gap-1",
                   })}
                 >
